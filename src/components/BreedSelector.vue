@@ -1,9 +1,11 @@
 <template>
-    <label>Raza de Perro</label>
-    <select>
-        <option selected>Selecciona una raza</option>
-        <option v-for="breed in breeds" :value="breed" :key="breed">{{ breed }}</option>
-    </select>
+    <div class="container">
+        <label class="form-label display-5">Raza de Perro</label>
+        <select class="form-select my-2" v-model="selectedBreed" @change="onSelectedBreed">
+            <option selected>Selecciona una raza</option>
+            <option v-for="breed in breeds" :value="breed" :key="breed">{{ breed }}</option>
+        </select>
+    </div>
 </template>
 
 <script>
@@ -28,7 +30,7 @@ export default {
     },
     methods:
     {
-        onSelectedBreed(){
+        onSelectedBreed() {
             this.$emit('selectedBreed', this.selectedBreed)
         }
     }
